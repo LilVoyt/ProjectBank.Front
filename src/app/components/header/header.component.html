@@ -1,17 +1,16 @@
 <header>
-    <div class="container">
-      <div class="logo">
-        <span>Project Bank</span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a [routerLink]="['/login']">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="login-button" [routerLink]="['/login']">Login</button>
+  <div class="container">
+    <div class="logo">
+      <a [routerLink]="['/']" class="logo-link"><span>Project Bank</span></a>
     </div>
-  </header>
-  
+    <nav>
+      <ul>
+        <li><a [routerLink]="['/']">Home</a></li>
+        <li><a [routerLink]="['/about']">About</a></li>
+        <li><a [routerLink]="['/services']">Services</a></li>
+        <li><a [routerLink]="['/contact']">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="login-button" [routerLink]="['/login']">Login</button>
+  </div>
+</header>
