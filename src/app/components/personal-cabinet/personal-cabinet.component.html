@@ -1,1 +1,11 @@
-<p>personal-cabinet works!</p>
+<div *ngIf="account">
+    <h2>{{ account.customer.firstName }} {{account.customer.lastName}}'s Account</h2>
+    <div class="card">
+      <div *ngFor="let card of account.cards" class="card-info">
+        <h3>{{ card.cardName }}</h3>
+        <p class="numbers">{{ card.numberCard }}</p>
+        <p class="cvv">{{ card.cvv }}</p>
+      </div>
+    </div>
+  </div>
+  

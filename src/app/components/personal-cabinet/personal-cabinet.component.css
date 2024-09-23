@@ -1,0 +1,47 @@
+.card {
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.card-info {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* margin-left: 20px;
+    margin-right: 20px */
+    margin: 50px 100px 50px 100px;
+
+    background-color:beige;
+
+    background-image: url('./photo.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .card-info h3 {
+    margin: 0px 0px 50px 10px;
+    font-size: 40px;
+    color: #555;
+    width: 400px;
+}
+
+.numbers {
+    margin: 50px 10px 50px 10px;
+    font-size: 50px;
+    color: #777;
+    text-align: center;
+}
+
+.cvv{
+    text-align: right;
+    padding-right: 29px;
+}
+
+.card-info p:last-child {
+    font-style: italic;
+}
+  

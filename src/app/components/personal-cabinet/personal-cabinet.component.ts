@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { PersonalCabinetService } from '../../services/personal-cabinet.service';
 import { Account } from '../../models/account';
@@ -9,25 +8,21 @@ import { Account } from '../../models/account';
 @Component({
   selector: 'app-personal-cabinet',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ReactiveFormsModule],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './personal-cabinet.component.html',
-  styleUrl: './personal-cabinet.component.css'
+  styleUrls: ['./personal-cabinet.component.css']  // Changed styleUrl to styleUrls
 })
-export class PersonalCabinetComponent {
-
+export class PersonalCabinetComponent implements OnInit {
   account: Account | null = null;
 
-  
-  constructor(private personalCabinetService: PersonalCabinetService, private route: ActivatedRoute){
-    
-  }
-  ngOnInit() : void {
+  constructor(private personalCabinetService: PersonalCabinetService, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
     const login = this.route.snapshot.paramMap.get('id');
-    if(login){
-      this.personalCabinetService
-    .getAccountById(login).subscribe(account => {
-      this.account = account;
-    })
-  }
+    if (login) {
+      this.personalCabinetService.getAccountById(login).subscribe(account => {
+        this.account = account;
+      });
+    }
   }
 }
