@@ -1,40 +1,39 @@
 <div class="registration-container">
-    <form class="registration-form">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="registration-form">
       <h2>Register</h2>
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required formControlName="name">
       </div>
       <div class="form-group">
-        <label for="login">Login</label>
-        <input type="text" id="login" name="login" required>
+          <label for="login">Login</label>
+          <input type="text" id="login" name="login" required formControlName="login">
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required formControlName="password">
       </div>
       <div class="form-group">
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name" name="first-name" required>
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" name="first-name" required formControlName="firstName">
       </div>
       <div class="form-group">
-        <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" name="last-name" required>
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="last-name" required formControlName="lastName">
       </div>
       <div class="form-group">
-        <label for="country">Country</label>
-        <input type="text" id="country" name="country" required>
+          <label for="country">Country</label>
+          <input type="text" id="country" name="country" required formControlName="country">
       </div>
       <div class="form-group">
-        <label for="phone-number">Phone Number</label>
-        <input type="text" id="phone-number" name="phone-number" required>
+          <label for="phone-number">Phone Number</label>
+          <input type="text" id="phone-number" name="phone-number" required formControlName="phoneNumber">
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required formControlName="email">
       </div>
       <button type="submit" class="register-button">Register</button>
       <p class="login-link">Already have an account? <a [routerLink]="['/login']">Login</a></p>
-    </form>
-  </div>
-  
+  </form>
+</div>
