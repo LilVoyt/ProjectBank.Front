@@ -15,7 +15,7 @@ export class PersonalCabinetService {
     return this.http.get<Account>(`https://localhost:7281/api/account?login=${userId}`).pipe(
       map(account => {
         account.cards.forEach(card => {
-          card.expiryDate = new Date(card.expiryDate);
+          card.expiryDate = card.expiryDate;
         });
         console.log(account); 
         return account;

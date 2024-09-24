@@ -16,5 +16,20 @@ import { HeaderComponent } from './components/header/header.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
+  title = 'ProjectBank.Front';
+  customers:  Customer[] = [];
+
+  constructor(private customerService: CustomerService) {}
+
+  ngOnInit() : void {
+    this.customerService
+    .getCustomers()
+    .subscribe((result: Customer[]) => this.customers = result);
+  }
+
+  ngOnChange() : void {
+    this.customerService
+    .getCustomers()
+    .subscribe((result: Customer[]) => this.customers = result);
+  }
 }

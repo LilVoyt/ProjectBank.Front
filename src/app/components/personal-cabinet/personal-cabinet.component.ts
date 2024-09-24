@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { PersonalCabinetService } from '../../services/personal-cabinet.service';
 import { Account } from '../../models/account';
+import { Card } from '../../models/card';
 
 @Component({
   selector: 'app-personal-cabinet',
@@ -14,6 +15,7 @@ import { Account } from '../../models/account';
 })
 export class PersonalCabinetComponent implements OnInit {
   account: Account | null = null;
+  selectedCard: Card | null = null;
 
   constructor(private personalCabinetService: PersonalCabinetService, private route: ActivatedRoute) { }
 
@@ -25,4 +27,9 @@ export class PersonalCabinetComponent implements OnInit {
       });
     }
   }
+
+  selectCard(card: Card): void {
+    this.selectedCard = card;
+  }
+  
 }
