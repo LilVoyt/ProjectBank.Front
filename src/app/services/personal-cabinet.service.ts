@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Customer } from '../models/customer';
 import { Account } from '../models/account';
+import { Transaction } from '../models/transaction';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,9 @@ export class PersonalCabinetService {
         return account;
       })
     );
+    }
+
+    getAllransactions(): Observable<Transaction[]>{
+      return this.http.get<Transaction[]>(`https://localhost:7281/api/transactions`);
     }
 }

@@ -5,6 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { PersonalCabinetService } from '../../services/personal-cabinet.service';
 import { Account } from '../../models/account';
 import { Card } from '../../models/card';
+import { Transaction } from '../../models/transaction';
 
 @Component({
   selector: 'app-personal-cabinet',
@@ -15,6 +16,7 @@ import { Card } from '../../models/card';
 })
 export class PersonalCabinetComponent implements OnInit {
   account: Account | null = null;
+  transactions: Transaction[] | null = null;
   selectedCard: Card | null = null;
 
   constructor(private personalCabinetService: PersonalCabinetService, private route: ActivatedRoute) { }
@@ -30,6 +32,14 @@ export class PersonalCabinetComponent implements OnInit {
 
   selectCard(card: Card): void {
     this.selectedCard = card;
+    this.getTransaction();
+  }
+
+  getTransaction(){
+    this.personalCabinetService.getAllransactions().subscribe(transactions => {
+      this.transactions = transactions;
+      console.log(transactions);
+    })
   }
   
 }
