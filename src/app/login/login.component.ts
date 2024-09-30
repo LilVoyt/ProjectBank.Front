@@ -29,6 +29,7 @@ export class LoginComponent {
       const loginObserver: Observer<any> = {
         next: (response) => {
           console.log('Login successful:', response);
+          this.registerService.storeToken(response.token);
           this.router.navigate([`/personal-cabinet/${newLogin.login}`]);
         },
         error: (error) => {

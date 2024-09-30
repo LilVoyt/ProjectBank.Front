@@ -4,6 +4,7 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './login/login.component';
 import { PersonalCabinetComponent } from './components/personal-cabinet/personal-cabinet.component';
+import { authGuard } from './guards/auth.guard';
 
 
 export const routes: Routes = [
@@ -24,7 +25,7 @@ export const routes: Routes = [
     },
     {
         path: 'personal-cabinet/:id',
-        component: PersonalCabinetComponent,
+        component: PersonalCabinetComponent, canActivate: [authGuard],
         title: 'Personal Cabinet Page'
     }
 ];
