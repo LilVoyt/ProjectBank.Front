@@ -2,7 +2,7 @@
     <div class="sidebar">
       <h2>Картки</h2>
       <ul>
-        <li *ngFor="let card of account.cards" (click)="selectCard(card)">
+        <li *ngFor="let card of cardsArray" (click)="selectCard(card)">
           <div class="card" [style.background-image]="'url(photo.png)'">
             <h3>{{ card.cardName }}</h3>
             <p>{{ card.numberCard }}</p>
@@ -12,11 +12,11 @@
       </ul>
     </div>
   
-    <div class="details" *ngIf="selectedCard">
+    <!-- <div class="details" *ngIf="selectedCard">
       <h2>{{ selectedCard.cardName }}</h2>
       <p>Номер картки: {{ selectedCard.numberCard }}</p>
       <p>Баланс: {{ selectedCard.balance | number }} UAH</p>
-      <p>Дата закінчення: {{ selectedCard.expiryDate | date: 'MM/yy' }}</p>
+      <p>Дата закінчення: {{ selectedCard.Data | date: 'MM/yy' }}</p>
       <p>CVV: {{ selectedCard.cvv }}</p>
 
       <h3>Транзакції</h3>
@@ -31,15 +31,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let transaction of transactions">
-            <!-- <td>{{ transaction.date | date: 'dd/MM/yyyy HH:mm' }}</td> -->
+            <td>{{ transaction.date | date: 'dd/MM/yyyy HH:mm' }}</td>
             <td>{{ transaction.id }}</td>
             <td>{{ transaction.sum }}</td>
-            <!-- <td [class.negative]="transaction.amount < 0">{{ transaction.amount | number }}</td>
-            <td>{{ transaction.balanceAfter | number }}</td> -->
+            <td [class.negative]="transaction.amount < 0">{{ transaction.amount | number }}</td>
+            <td>{{ transaction.balanceAfter | number }}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    </div>
+    </div> -->
   </div>
   

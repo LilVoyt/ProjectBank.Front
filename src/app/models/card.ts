@@ -5,9 +5,9 @@ export interface Card {
     cardName: string;
     numberCard: string;
     pincode: number;
+    Data: Date;
     cvv: number;
-    expiryDate: Date;
     balance: number;
-    sentTransactions: Transaction;
-    receivedTransactions: Transaction;
+    sentTransactions: Transaction[];
+    receivedTransactions: Transaction[];
   }

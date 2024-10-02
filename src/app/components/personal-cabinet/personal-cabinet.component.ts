@@ -6,18 +6,20 @@ import { PersonalCabinetService } from '../../services/personal-cabinet.service'
 import { Account } from '../../models/account';
 import { Card } from '../../models/card';
 import { Transaction } from '../../models/transaction';
+import { Customer } from '../../models/customer';
 
 @Component({
   selector: 'app-personal-cabinet',
   standalone: true,
   imports: [CommonModule, RouterOutlet],
   templateUrl: './personal-cabinet.component.html',
-  styleUrls: ['./personal-cabinet.component.css']  // Changed styleUrl to styleUrls
+  styleUrls: ['./personal-cabinet.component.css'] 
 })
 export class PersonalCabinetComponent implements OnInit {
   account: Account | null = null;
   transactions: Transaction[] | null = null;
   selectedCard: Card | null = null;
+  cardsArray: any;         
 
   constructor(private personalCabinetService: PersonalCabinetService, private route: ActivatedRoute) { }
 
@@ -27,6 +29,12 @@ export class PersonalCabinetComponent implements OnInit {
       this.personalCabinetService.getAccountById(login).subscribe(account => {
         console.log('Received account:', account);
         this.account = account;
+        
+        if (account.cards) {
+          this.cardsArray = account.cards;
+        } else {
+          this.cardsArray = [];
+        }
       });
     }
   }

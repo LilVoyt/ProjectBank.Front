@@ -33,7 +33,9 @@ export class RegisterService {
   // }
 
   getToken(){
-    return localStorage.getItem('token')
+    var res = localStorage.getItem('token');
+    console.log(res);
+    return res;
   }
   // getRefreshToken(){
   //   return localStorage.getItem('refreshToken')

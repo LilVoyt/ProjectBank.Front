@@ -7,6 +7,7 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
