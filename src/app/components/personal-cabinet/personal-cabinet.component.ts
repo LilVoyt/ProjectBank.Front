@@ -25,6 +25,7 @@ export class PersonalCabinetComponent implements OnInit {
     const login = this.route.snapshot.paramMap.get('id');
     if (login) {
       this.personalCabinetService.getAccountById(login).subscribe(account => {
+        console.log('Received account:', account);
         this.account = account;
       });
     }

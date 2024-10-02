@@ -13,18 +13,10 @@ export class PersonalCabinetService {
   constructor(private http: HttpClient) { }
 
   getAccountById(userId: string): Observable<Account> {
-    return this.http.get<Account>(`https://localhost:7281/api/account?login=${userId}`).pipe(
-      map(account => {
-        account.cards.forEach(card => {
-          card.expiryDate = card.expiryDate;
-        });
-        console.log(account); 
-        return account;
-      })
-    );
+    return this.http.get<Account>(`https://localhost:7281/api/account?login=${userId}`);
     }
 
     getAllransactions(): Observable<Transaction[]>{
-      return this.http.get<Transaction[]>(`https://localhost:7281/api/transactions`);
+      return this.http.get<Transaction[]>(`https://localhost:7281/transactions`);
     }
 }

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Register } from '../models/register';
 import { Observable } from 'rxjs';
 import { Login } from '../models/login';
-import {JwtHelperService} from '@auth0/angular-jwt'
+// import {JwtHelperService} from '@auth0/angular-jwt'
 
 @Injectable({
   providedIn: 'root'
