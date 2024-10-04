@@ -13,10 +13,23 @@ export class PersonalCabinetService {
   constructor(private http: HttpClient) { }
 
   getAccountById(userId: string): Observable<Account> {
-    return this.http.get<Account>(`https://localhost:7281/api/account?login=${userId}`);
+    return this.http.get<any>(`https://localhost:7281/api/account?login=${userId}`).pipe(
+      map(response => this.parseAccountResponse(response))
+    );
     }
 
     getAllransactions(): Observable<Transaction[]>{
       return this.http.get<Transaction[]>(`https://localhost:7281/transactions`);
+    }
+
+    parseAccountResponse(response: any): Account {
+      const account: Account = {
+        id: response.id,
+        name: response.name,
+        customer: response.customer,
+        cards: response.cards.$values
+      };
+  
+      return account; 
     }
 }
