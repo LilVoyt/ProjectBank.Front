@@ -6,20 +6,19 @@ import { PersonalCabinetService } from '../../services/personal-cabinet.service'
 import { Account } from '../../models/account';
 import { Card } from '../../models/card';
 import { Transaction } from '../../models/transaction';
-import { Customer } from '../../models/customer';
 
 @Component({
   selector: 'app-personal-cabinet',
   standalone: true,
   imports: [CommonModule, RouterOutlet],
   templateUrl: './personal-cabinet.component.html',
-  styleUrls: ['./personal-cabinet.component.css'] 
+  styleUrls: ['./personal-cabinet.component.css']
 })
 export class PersonalCabinetComponent implements OnInit {
   account: Account | null = null;
-  transactions: Transaction[] | null = null;
+  transactions: Transaction[] = [];
   selectedCard: Card | null = null;
-  cardsArray: any;         
+  cardsArray: Card[] = [];
 
   constructor(private personalCabinetService: PersonalCabinetService, private route: ActivatedRoute) { }
 
@@ -29,26 +28,25 @@ export class PersonalCabinetComponent implements OnInit {
       this.personalCabinetService.getAccountById(login).subscribe(account => {
         console.log('Received account:', account);
         this.account = account;
-        
-        if (account.cards) {
-          this.cardsArray = account.cards;
-        } else {
-          this.cardsArray = [];
-        }
+        this.cardsArray = account.cards || [];
       });
+      this.getTransactions();
     }
   }
 
   selectCard(card: Card): void {
     this.selectedCard = card;
-    this.getTransaction();
+    this.getTransactions();
   }
 
-  getTransaction(){
-    this.personalCabinetService.getAllransactions().subscribe(transactions => {
-      this.transactions = transactions;
-      console.log(transactions);
-    })
+  getTransactions(): void {
+    this.personalCabinetService.getAllTransactions().subscribe(transactions => {
+      if (this.selectedCard) {
+        this.transactions = transactions;
+      } else {
+        this.transactions = transactions;
+      }
+      console.log('Transactions:', this.transactions);
+    });
   }
-  
 }

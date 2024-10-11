@@ -18,8 +18,10 @@ export class PersonalCabinetService {
     );
     }
 
-    getAllransactions(): Observable<Transaction[]>{
-      return this.http.get<Transaction[]>(`https://localhost:7281/transactions`);
+    getAllTransactions(): Observable<Transaction[]>{
+      return this.http.get<Transaction[]>(`https://localhost:7281/api/transactions`).pipe(
+        map(response => response as Transaction[])
+      )
     }
 
     parseAccountResponse(response: any): Account {
@@ -27,7 +29,7 @@ export class PersonalCabinetService {
         id: response.id,
         name: response.name,
         customer: response.customer,
-        cards: response.cards.$values
+        cards: response.cards.$values,
       };
   
       return account; 
