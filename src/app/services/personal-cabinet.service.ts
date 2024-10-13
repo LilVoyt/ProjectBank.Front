@@ -5,7 +5,8 @@ import { Customer } from '../models/customer';
 import { Account } from '../models/account';
 import { Transaction } from '../models/transaction';
 import { Card } from '../models/card';
-import { CreateTransactionCommand } from '../models/сreateTransactionCommand';
+import { CreateTransactionCommand } from '../models/transactionDto';
+
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +36,8 @@ export class PersonalCabinetService {
     return this.accountCards;
   }
 
-  postTransaction(createTransactionCommand : CreateTransactionCommand) : Observable<CreateTransactionCommand> {
-    console.log(createTransactionCommand)
-    return this.http.post<CreateTransactionCommand>(`https://localhost:7281/transactions`, createTransactionCommand);
+  postTransaction(createTransactionCommand: CreateTransactionCommand): Observable<CreateTransactionCommand> {
+    console.log(createTransactionCommand);
+    return this.http.post<CreateTransactionCommand>('http://localhost:7281/post', createTransactionCommand);
   }
 }

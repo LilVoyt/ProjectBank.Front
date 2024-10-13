@@ -6,7 +6,7 @@ import { PersonalCabinetService } from '../../services/personal-cabinet.service'
 import { Account } from '../../models/account';
 import { Card } from '../../models/card';
 import { Transaction } from '../../models/transaction';
-import { CreateTransactionCommand } from '../../models/сreateTransactionCommand';
+import { CreateTransactionCommand } from '../../models/transactionDto';
 
 @Component({
   selector: 'app-personal-cabinet',
