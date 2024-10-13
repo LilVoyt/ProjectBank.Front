@@ -1,0 +1,25 @@
+<div class="transfer-container">
+    <h2>Переказ грошей</h2>
+    
+    <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+      <div class="card-selection">
+        <label for="senderNumber">З картки</label>
+        <select formControlName="senderNumber" id="senderNumber">
+          <option *ngFor="let card of cards" [value]="card.numberCard">{{ card.numberCard }} - {{ card.balance }} UAH</option>
+        </select>
+      </div>
+  
+      <div class="card-input">
+        <label for="receiverNumber">Картка одержувача</label>
+        <input type="text" id="receiverNumber" formControlName="receiverNumber" placeholder="Введіть номер картки" />
+      </div>
+  
+      <div class="amount-input">
+        <label for="sum">Сума</label>
+        <input type="number" id="sum" formControlName="sum" placeholder="Введіть суму" />
+      </div>
+  
+      <button type="submit">Переказати</button>
+    </form>
+  </div>
+  

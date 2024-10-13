@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { PersonalCabinetService } from '../../services/personal-cabinet.service';
 import { Account } from '../../models/account';
 import { Card } from '../../models/card';
 import { Transaction } from '../../models/transaction';
-import { TransactionDto } from '../../models/transactionDto';
+import { CreateTransactionCommand } from '../../models/сreateTransactionCommand';
 
 @Component({
   selector: 'app-personal-cabinet',
@@ -20,9 +20,9 @@ export class PersonalCabinetComponent implements OnInit {
   transactions: Transaction[] = [];
   selectedCard: Card | null = null;
   cardsArray: Card[] = [];
-  transationResponse: TransactionDto | null = null;
+  transationResponse: CreateTransactionCommand | null = null;
 
-  constructor(private personalCabinetService: PersonalCabinetService, private route: ActivatedRoute) { }
+  constructor(private personalCabinetService: PersonalCabinetService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const login = this.route.snapshot.paramMap.get('id');
@@ -31,6 +31,7 @@ export class PersonalCabinetComponent implements OnInit {
         console.log('Received account:', account);
         this.account = account;
         this.cardsArray = account.cards;
+        this.personalCabinetService.setAccountCards(account.cards);
       });
     }
   }
@@ -52,6 +53,6 @@ export class PersonalCabinetComponent implements OnInit {
   }
 
   sendTransaction() : void {
-    this.transationResponse?.senderNumber 
+    this.router.navigate([`/money-transfer`]);
   }
 }

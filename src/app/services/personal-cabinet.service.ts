@@ -4,11 +4,15 @@ import { map, Observable } from 'rxjs';
 import { Customer } from '../models/customer';
 import { Account } from '../models/account';
 import { Transaction } from '../models/transaction';
+import { Card } from '../models/card';
+import { CreateTransactionCommand } from '../models/сreateTransactionCommand';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonalCabinetService {
+
+  accountCards: Card[] | null = null;
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +25,18 @@ export class PersonalCabinetService {
         map(response => response as Transaction[])
       )
     }
-  // postTransaction(senderNumber: string, receiverNumber: string, sum: number){
-  //   this.http.post<>
-  // }
+  
+  setAccountCards(accountCards: Card[]){
+    this.accountCards = accountCards;
+    console.log(this.accountCards)
+  }
+
+  getAccountCards() : Card[] | null {
+    return this.accountCards;
+  }
+
+  postTransaction(createTransactionCommand : CreateTransactionCommand) : Observable<CreateTransactionCommand> {
+    console.log(createTransactionCommand)
+    return this.http.post<CreateTransactionCommand>(`https://localhost:7281/transactions`, createTransactionCommand);
+  }
 }

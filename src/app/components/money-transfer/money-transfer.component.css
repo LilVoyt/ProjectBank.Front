@@ -1,0 +1,49 @@
+/* transfer.component.css */
+.transfer-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .transfer-container h2 {
+    text-align: center;
+  }
+  
+  .card-selection,
+  .card-input,
+  .amount-input {
+    margin-bottom: 20px;
+  }
+  
+  .card-selection label,
+  .card-input label,
+  .amount-input label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .card-selection select,
+  .card-input input,
+  .amount-input input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

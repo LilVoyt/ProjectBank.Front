@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { PersonalCabinetComponent } from './components/personal-cabinet/personal-cabinet.component';
 import { authGuard } from './guards/auth.guard';
+import { MoneyTransferComponent } from './components/money-transfer/money-transfer.component';
 
 
 export const routes: Routes = [
@@ -27,5 +28,10 @@ export const routes: Routes = [
         path: 'personal-cabinet/:id',
         component: PersonalCabinetComponent, canActivate: [authGuard],
         title: 'Personal Cabinet Page'
+    },
+    {
+        path: 'money-transfer',
+        component: MoneyTransferComponent, canActivate: [authGuard],
+        title: 'Money Transfer Page'
     }
 ];

@@ -1,4 +1,4 @@
-export interface TransactionDto{
+export interface CreateTransactionCommand{
     senderNumber: string;
     receiverNumber: string;
     sum: number;
