@@ -6,6 +6,7 @@ import { PersonalCabinetService } from '../../services/personal-cabinet.service'
 import { Account } from '../../models/account';
 import { Card } from '../../models/card';
 import { Transaction } from '../../models/transaction';
+import { TransactionDto } from '../../models/transactionDto';
 
 @Component({
   selector: 'app-personal-cabinet',
@@ -19,6 +20,7 @@ export class PersonalCabinetComponent implements OnInit {
   transactions: Transaction[] = [];
   selectedCard: Card | null = null;
   cardsArray: Card[] = [];
+  transationResponse: TransactionDto | null = null;
 
   constructor(private personalCabinetService: PersonalCabinetService, private route: ActivatedRoute) { }
 
@@ -28,19 +30,18 @@ export class PersonalCabinetComponent implements OnInit {
       this.personalCabinetService.getAccountById(login).subscribe(account => {
         console.log('Received account:', account);
         this.account = account;
-        this.cardsArray = account.cards || [];
+        this.cardsArray = account.cards;
       });
-      this.getTransactions();
     }
   }
 
   selectCard(card: Card): void {
     this.selectedCard = card;
-    this.getTransactions();
+    this.getTransactions(this.selectedCard.id, this.selectedCard.id);
   }
 
-  getTransactions(): void {
-    this.personalCabinetService.getAllTransactions().subscribe(transactions => {
+  getTransactions(senderId: string | undefined, receiverId: string | undefined, sortItem: string = "date", sortOrder: string = "asc"): void {
+    this.personalCabinetService.getAllTransactions(senderId, receiverId).subscribe(transactions => {
       if (this.selectedCard) {
         this.transactions = transactions;
       } else {
@@ -48,5 +49,9 @@ export class PersonalCabinetComponent implements OnInit {
       }
       console.log('Transactions:', this.transactions);
     });
+  }
+
+  sendTransaction() : void {
+    this.transationResponse?.senderNumber 
   }
 }

@@ -13,25 +13,15 @@ export class PersonalCabinetService {
   constructor(private http: HttpClient) { }
 
   getAccountById(userId: string): Observable<Account> {
-    return this.http.get<any>(`https://localhost:7281/api/account?login=${userId}`).pipe(
-      map(response => this.parseAccountResponse(response))
-    );
+    return this.http.get<Account>(`https://localhost:7281/api/account?login=${userId}`)
     }
 
-    getAllTransactions(): Observable<Transaction[]>{
-      return this.http.get<Transaction[]>(`https://localhost:7281/api/transactions`).pipe(
+  getAllTransactions(senderId: string | undefined, receiverId: string | undefined, sortItem: string = "date", sortOrder: string = "asc"): Observable<Transaction[]>{
+      return this.http.get<Transaction[]>(`https://localhost:7281/api/transactions?sender=${senderId}&receiver=${receiverId}&sortItem=${sortItem}${sortItem}`).pipe(
         map(response => response as Transaction[])
       )
     }
-
-    parseAccountResponse(response: any): Account {
-      const account: Account = {
-        id: response.id,
-        name: response.name,
-        customer: response.customer,
-        cards: response.cards.$values,
-      };
-  
-      return account; 
-    }
+  // postTransaction(senderNumber: string, receiverNumber: string, sum: number){
+  //   this.http.post<>
+  // }
 }

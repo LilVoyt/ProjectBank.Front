@@ -19,6 +19,11 @@
       <p>Дата закінчення: {{ selectedCard.Data | date: 'MM/yy' }}</p>
       <p>CVV: {{ selectedCard.cvv }}</p>
 
+
+      <div>
+        <button (click)="sendTransaction()" >Переказ на картку</button> 
+      </div>
+
       <h3>Транзакції</h3>
     <div class="transactions">
       <table>
@@ -29,10 +34,10 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr *ngFor="let transaction of transactions">
+          <tr *ngFor="let transaction of transactions">
             <td>{{ transaction.id }}</td>
             <td>{{ transaction.sum | number}}</td>
-          </tr> -->
+          </tr>
         </tbody>
       </table>
     </div>

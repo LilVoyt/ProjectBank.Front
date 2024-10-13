@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { RegisterService } from '../services/register.service';
-import { Login } from '../models/login';
+import { RegisterService } from '../../services/register.service';
+import { Login } from '../../models/login';
 import { Observer } from 'rxjs';
 
 @Component({

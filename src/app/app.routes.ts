@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { PersonalCabinetComponent } from './components/personal-cabinet/personal-cabinet.component';
 import { authGuard } from './guards/auth.guard';
 

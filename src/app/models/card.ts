@@ -8,6 +8,4 @@ export interface Card {
     Data: Date;
     cvv: number;
     balance: number;
-    sentTransactions: Transaction[];
-    receivedTransactions: Transaction[];
   }
