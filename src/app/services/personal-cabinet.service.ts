@@ -38,6 +38,6 @@ export class PersonalCabinetService {
 
   postTransaction(createTransactionCommand: CreateTransactionCommand): Observable<CreateTransactionCommand> {
     console.log(createTransactionCommand);
-    return this.http.post<CreateTransactionCommand>('http://localhost:7281/post', createTransactionCommand);
+    return this.http.post<CreateTransactionCommand>('https://localhost:7281/api/transactions', createTransactionCommand);
   }
 }

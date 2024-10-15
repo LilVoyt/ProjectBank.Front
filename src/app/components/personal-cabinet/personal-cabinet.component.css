@@ -90,3 +90,47 @@
     color: red;
   }
   
+
+  .card-controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0; /* Відступ між карткою та управлінням */
+}
+
+.icon {
+    flex: 1; /* Кожна іконка займатиме однакову ширину */
+    text-align: center; /* Центрування тексту */
+    cursor: pointer; /* Курсор у вигляді вказівника */
+    transition: transform 0.2s; /* Анімація при наведенні */
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Збільшення іконки при наведенні */
+}
+
+.icon i {
+    font-size: 24px; /* Розмір іконки */
+    color: #28a745; /* Колір іконки */
+}
+
+.icon p {
+    margin-top: 5px; /* Відступ між іконкою та текстом */
+    color: white; /* Білий текст */
+}
+
+/* Залиште попередні стилі для кнопки та загального оформлення */
+.transaction-button {
+    background-color: #28a745; /* Зелений фон */
+    color: white; /* Білий текст */
+    border: none; /* Без бордюра */
+    border-radius: 5px; /* Заокруглення кутів */
+    padding: 10px 20px; /* Внутрішні відступи */
+    font-size: 16px; /* Розмір шрифту */
+    cursor: pointer; /* Курсор у вигляді вказівника */
+    transition: background-color 0.3s, transform 0.2s; /* Анімація */
+}
+
+.transaction-button:hover {
+    background-color: #218838; /* Темніший зелений при наведенні */
+    transform: scale(1.05); /* Збільшення кнопки при наведенні */
+}

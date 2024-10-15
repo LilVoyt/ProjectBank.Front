@@ -38,7 +38,16 @@ export class MoneyTransferComponent implements OnInit {
     if (this.transferForm.valid) {
       const formData = this.transferForm.value;
       console.log('Form Data:', formData); 
-      this.personalCabinetService.postTransaction(formData);
+      this.personalCabinetService.postTransaction(formData).subscribe({
+        next: (response) => {
+          console.log('Transaction successful:', response);
+        },
+        error: (error) => {
+          console.error('Error occurred:', error);
+        }
+      });
+    } else {
+      console.log('Form is invalid');
     }
   }
 }
