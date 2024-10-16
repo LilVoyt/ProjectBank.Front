@@ -40,4 +40,5 @@ export class PersonalCabinetService {
     console.log(createTransactionCommand);
     return this.http.post<CreateTransactionCommand>('https://localhost:7281/api/transactions', createTransactionCommand);
   }
+
 }

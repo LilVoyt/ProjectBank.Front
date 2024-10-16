@@ -134,3 +134,17 @@
     background-color: #218838; /* Темніший зелений при наведенні */
     transform: scale(1.05); /* Збільшення кнопки при наведенні */
 }
+
+
+.add-card-div{
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+
+.add-card-button{
+  height : 90px;
+  border-radius: 5px;
+  font-size: 18px;
+}

@@ -55,4 +55,8 @@ export class PersonalCabinetComponent implements OnInit {
   sendTransaction() : void {
     this.router.navigate([`/money-transfer`]);
   }
+
+  addCard() : void { //here we need to add a route to class witch will add a card but also i need to change a jwt token to store there a id;
+    
+  }
 }
