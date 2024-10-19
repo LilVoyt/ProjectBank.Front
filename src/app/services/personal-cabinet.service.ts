@@ -7,12 +7,12 @@ import { Transaction } from '../models/transaction';
 import { Card } from '../models/card';
 import { CreateTransactionCommand } from '../models/transactionDto';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class PersonalCabinetService {
 
+  private secretKey = 'myHardSecret7asdasdasdasd7777777777';
   accountCards: Card[] | null = null;
 
   constructor(private http: HttpClient) { }
@@ -41,4 +41,24 @@ export class PersonalCabinetService {
     return this.http.post<CreateTransactionCommand>('https://localhost:7281/api/transactions', createTransactionCommand);
   }
 
+  getToken(){
+    var res = localStorage.getItem('token');
+    if(res === null){
+      return " ";
+    }
+    else{
+      return res;
+    }
+    // console.log(res);
+  }
+
+  getId(token: string){
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  }
 }

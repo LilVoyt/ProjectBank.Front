@@ -26,6 +26,8 @@ export class PersonalCabinetComponent implements OnInit {
 
   ngOnInit(): void {
     const login = this.route.snapshot.paramMap.get('id');
+    const res = this.personalCabinetService.getId(this.personalCabinetService.getToken())
+    console.log("easy", res)
     if (login) {
       this.personalCabinetService.getAccountById(login).subscribe(account => {
         console.log('Received account:', account);
@@ -57,6 +59,6 @@ export class PersonalCabinetComponent implements OnInit {
   }
 
   addCard() : void { //here we need to add a route to class witch will add a card but also i need to change a jwt token to store there a id;
-    
+
   }
 }
