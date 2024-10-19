@@ -7,6 +7,16 @@ import { Account } from '../../models/account';
 import { Card } from '../../models/card';
 import { Transaction } from '../../models/transaction';
 import { CreateTransactionCommand } from '../../models/transactionDto';
+import { jwtDecode } from "jwt-decode";
+import { Guid } from 'guid-typescript';
+interface JwtPayload {
+  nameid: string;
+  role: string;
+  unique_name: string;
+  nbf: number;
+  exp: number;
+  iat: number;
+}
 
 @Component({
   selector: 'app-personal-cabinet',
@@ -26,10 +36,12 @@ export class PersonalCabinetComponent implements OnInit {
 
   ngOnInit(): void {
     const login = this.route.snapshot.paramMap.get('id');
-    const res = this.personalCabinetService.getId(this.personalCabinetService.getToken())
-    console.log("easy", res)
+    const token = localStorage.getItem('token')??'';
+    const decoded = jwtDecode<JwtPayload>(token);
+     
+    console.log(decoded.nameid)
     if (login) {
-      this.personalCabinetService.getAccountById(login).subscribe(account => {
+      this.personalCabinetService.getAccountById(decoded.nameid).subscribe(account => {
         console.log('Received account:', account);
         this.account = account;
         this.cardsArray = account.cards;
@@ -59,6 +71,6 @@ export class PersonalCabinetComponent implements OnInit {
   }
 
   addCard() : void { //here we need to add a route to class witch will add a card but also i need to change a jwt token to store there a id;
-
+    
   }
 }

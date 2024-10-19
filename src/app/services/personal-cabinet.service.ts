@@ -6,6 +6,8 @@ import { Account } from '../models/account';
 import { Transaction } from '../models/transaction';
 import { Card } from '../models/card';
 import { CreateTransactionCommand } from '../models/transactionDto';
+import { Guid } from "guid-typescript";
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +19,8 @@ export class PersonalCabinetService {
 
   constructor(private http: HttpClient) { }
 
-  getAccountById(userId: string): Observable<Account> {
-    return this.http.get<Account>(`https://localhost:7281/api/account?login=${userId}`)
+  getAccountById(userId: String): Observable<Account> {
+    return this.http.get<Account>(`https://localhost:7281/api/account?id=${userId}`)
     }
 
   getAllTransactions(senderId: string | undefined, receiverId: string | undefined, sortItem: string = "date", sortOrder: string = "asc"): Observable<Transaction[]>{
@@ -52,7 +54,7 @@ export class PersonalCabinetService {
     // console.log(res);
   }
 
-  getId(token: string){
+  getId(token: string) : string {
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => {
