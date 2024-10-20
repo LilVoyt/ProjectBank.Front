@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Card } from '../../models/card';
 import { PersonalCabinetService } from '../../services/personal-cabinet.service';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { JwtPayloadUpgraded } from '../../models/jwtPayloadUpgraded';
 
 @Component({
   selector: 'app-money-transfer',
@@ -21,11 +23,15 @@ export class MoneyTransferComponent implements OnInit {
       receiverNumber: ['', Validators.required],
       sum: [null, Validators.required],
     })
-    this.cards = personalCabinetService.getAccountCards();
-    console.log("hello im here" + this.cards)
   }
 
   ngOnInit(): void {
+    const token = localStorage.getItem('token')??'';
+    const decoded = jwtDecode<JwtPayloadUpgraded>(token);
+    this.personalCabinetService.getAccountCards(decoded.nameid).subscribe(cards =>{
+      this.cards = cards;
+    }
+    );
     console.log(this.cards);  
     this.transferForm = this.fb.group({
       senderNumber: ['', Validators.required],

@@ -14,7 +14,6 @@ import { Guid } from "guid-typescript";
 })
 export class PersonalCabinetService {
 
-  private secretKey = 'myHardSecret7asdasdasdasd7777777777';
   accountCards: Card[] | null = null;
 
   constructor(private http: HttpClient) { }
@@ -34,8 +33,8 @@ export class PersonalCabinetService {
     console.log(this.accountCards)
   }
 
-  getAccountCards() : Card[] | null {
-    return this.accountCards;
+  getAccountCards(accountId: string) : Observable<Card[]> {
+    return this.http.get<Card[]>(`https://localhost:7281/api/card?accountId=${accountId}`);
   }
 
   postTransaction(createTransactionCommand: CreateTransactionCommand): Observable<CreateTransactionCommand> {
@@ -63,4 +62,8 @@ export class PersonalCabinetService {
 
     return JSON.parse(jsonPayload);
   }
+
+  // addCard(accountId : string) : Observable<Card>{
+  //   return this.http.post<Card>(`https`)
+  // }
 }

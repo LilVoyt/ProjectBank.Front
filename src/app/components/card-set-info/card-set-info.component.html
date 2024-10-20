@@ -1,0 +1,22 @@
+<div class="login-container">
+    <form [formGroup]="createCardForm" (ngSubmit)="onSubmit()" class="login-form">
+      <h2>Створити картку</h2>
+      <div class="form-group">
+        <input type="checkbox" id="agreeToTerms" formControlName="agreeToTerms">
+        <label for="agreeToTerms">Я ознайомлений з правилами</label>
+      </div>
+  
+      <div class="form-group">
+        <label for="pinCode">PIN код:</label>
+        <input type="password" id="pinCode" formControlName="pinCode" maxlength="4" placeholder="Введіть PIN код">
+        <!-- <div *ngIf="createCardForm.controls['pinCode'].invalid && createCardForm.controls['pinCode'].touched">
+          <small *ngIf="createCardForm.controls['pinCode'].errors['required']">PIN код обов'язковий</small>
+          <small *ngIf="createCardForm.controls['pinCode'].errors['minlength']">PIN код має бути 4 цифри</small>
+          <small *ngIf="createCardForm.controls['pinCode'].errors['maxlength']">PIN код має бути 4 цифри</small>
+        </div> -->
+      </div>
+  
+      <button type="submit" [disabled]="createCardForm.invalid" class="login-button">Створити картку</button>
+    </form>
+  </div>
+  
