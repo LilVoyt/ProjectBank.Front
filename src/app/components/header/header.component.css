@@ -63,3 +63,8 @@ header {
   .login-button:hover {
     background-color: #0056b3;
   }
+
+  .photo{
+    padding-right: 10px;
+
+  }

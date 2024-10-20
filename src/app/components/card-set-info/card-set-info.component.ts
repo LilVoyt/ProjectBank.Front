@@ -5,6 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AddCardDto } from '../../models/addCardDto';
 import { jwtDecode } from 'jwt-decode';
 import { JwtPayloadUpgraded } from '../../models/jwtPayloadUpgraded';
+import { PersonalCabinetComponent } from '../personal-cabinet/personal-cabinet.component';
+import { PersonalCabinetService } from '../../services/personal-cabinet.service';
+import { Card } from '../../models/card';
 
 @Component({
   selector: 'app-card-set-info',
@@ -20,8 +23,9 @@ export class CardSetInfoComponent {
     cardName: '',
     accountId: ''
   }
+  newCard: Card | null = null;
 
-  constructor(private route: ActivatedRoute, private router: Router, private fb: FormBuilder) {
+  constructor(private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private personalCabinetService: PersonalCabinetService) {
     this.createCardForm = this.fb.group({
       agreeToTerms: [false, Validators.requiredTrue],
       pinCode: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]]
@@ -46,6 +50,10 @@ export class CardSetInfoComponent {
       this.addCard.accountId = decoded.nameid;
 
       console.log(this.addCard);
+
+      this.personalCabinetService.addCard(this.addCard).subscribe(card => {
+        this.newCard = card;
+      })
     }
   }
 }

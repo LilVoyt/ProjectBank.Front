@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {RouterModule} from '@angular/router'
+import {ActivatedRoute, Router, RouterModule} from '@angular/router'
+import { jwtDecode } from 'jwt-decode';
+import { JwtPayloadUpgraded } from '../../models/jwtPayloadUpgraded';
 
 
 @Component({
@@ -11,4 +13,11 @@ import {RouterModule} from '@angular/router'
 })
 export class HeaderComponent {
 
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
+
+  ngOnInit(): void {
+    const token = localStorage.getItem('token')??'';
+    const decoded = jwtDecode<JwtPayloadUpgraded>(token);
+  }
 }

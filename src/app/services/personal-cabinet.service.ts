@@ -7,6 +7,7 @@ import { Transaction } from '../models/transaction';
 import { Card } from '../models/card';
 import { CreateTransactionCommand } from '../models/transactionDto';
 import { Guid } from "guid-typescript";
+import { AddCardDto } from '../models/addCardDto';
 
 
 @Injectable({
@@ -63,7 +64,7 @@ export class PersonalCabinetService {
     return JSON.parse(jsonPayload);
   }
 
-  // addCard(accountId : string) : Observable<Card>{
-  //   return this.http.post<Card>(`https`)
-  // }
+  addCard(addCardDto : AddCardDto) : Observable<Card>{
+    return this.http.post<Card>(`https://localhost:7281/api/card`, addCardDto);
+  }
 }
