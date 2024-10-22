@@ -31,9 +31,9 @@ export class PersonalCabinetComponent implements OnInit {
     const token = localStorage.getItem('token')??'';
     const decoded = jwtDecode<JwtPayloadUpgraded>(token);
      
-    console.log(decoded.nameid)
+    console.log(decoded)
     if (login) {
-      this.personalCabinetService.getAccountById(decoded.nameid).subscribe(account => {
+      this.personalCabinetService.getAccountById(decoded.certserialnumber).subscribe(account => {
         console.log('Received account:', account);
         this.account = account;
         this.cardsArray = account.cards;

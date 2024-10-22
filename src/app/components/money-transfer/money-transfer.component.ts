@@ -28,7 +28,7 @@ export class MoneyTransferComponent implements OnInit {
   ngOnInit(): void {
     const token = localStorage.getItem('token')??'';
     const decoded = jwtDecode<JwtPayloadUpgraded>(token);
-    this.personalCabinetService.getAccountCards(decoded.nameid).subscribe(cards =>{
+    this.personalCabinetService.getAccountCards(decoded.certserialnumber).subscribe(cards =>{
       this.cards = cards;
     }
     );

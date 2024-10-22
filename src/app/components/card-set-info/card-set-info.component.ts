@@ -47,7 +47,7 @@ export class CardSetInfoComponent {
 
       this.addCard.pincode = formData.pinCode;
       this.addCard.cardName =  this.route.snapshot.paramMap.get('type') ?? "";
-      this.addCard.accountId = decoded.nameid;
+      this.addCard.accountId = decoded.certserialnumber;
 
       console.log(this.addCard);
 

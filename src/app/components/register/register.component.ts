@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { RegisterService } from '../../services/register.service';
 import { Register } from '../../models/register';
 import { CommonModule } from '@angular/common';
+import { Observer } from 'rxjs';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class RegisterComponent {
 
   registerForm: FormGroup;
 
-  constructor(private registerService: RegisterService, private fb: FormBuilder ){
+  constructor(private registerService: RegisterService, private fb: FormBuilder, private router: Router){
     this.registerForm = this.fb.group({
       name : [''],
       login : [''],
@@ -33,10 +34,22 @@ export class RegisterComponent {
   onSubmit(): void {
     if (this.registerForm.valid) {
       const newRegister: Register = this.registerForm.value;
-      this.registerService.createUser(newRegister).subscribe(() => {
-        this.registerForm.reset();
-      });
-      console.log(this.registerForm.value);
+      const registerObserver: Observer<any> = {
+        next: (response) => {
+          console.log('Register successful:', response);
+          this.registerService.storeToken(response.token);
+          this.router.navigate([`/personal-cabinet/${newRegister.login}`]);
+        },
+        error: (error) => {
+          console.error('Register failed:', error);
+          this.registerForm.reset();
+        },
+        complete: () => {
+          console.log('Register request completed.');
+        }
+      };
+
+      this.registerService.createUser(newRegister).subscribe(registerObserver);
     }
   }
   
