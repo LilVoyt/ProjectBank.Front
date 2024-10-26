@@ -21,14 +21,9 @@ export class MainPageComponent {
   constructor(private customerService: CustomerService) {}
 
   ngOnInit() : void {
-    this.customerService
-    .getCustomers()
-    .subscribe((result: Customer[]) => this.customers = result);
   }
 
   ngOnChange() : void {
-    this.customerService
-    .getCustomers()
-    .subscribe((result: Customer[]) => this.customers = result);
+
   }
 }

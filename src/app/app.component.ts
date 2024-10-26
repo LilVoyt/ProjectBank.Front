@@ -20,17 +20,11 @@ export class AppComponent {
   title = 'ProjectBank.Front';
   customers:  Customer[] = [];
 
-  constructor(private customerService: CustomerService) {}
+  constructor() {}
 
   ngOnInit() : void {
-    this.customerService
-    .getCustomers()
-    .subscribe((result: Customer[]) => this.customers = result);
   }
 
   ngOnChange() : void {
-    this.customerService
-    .getCustomers()
-    .subscribe((result: Customer[]) => this.customers = result);
   }
 }

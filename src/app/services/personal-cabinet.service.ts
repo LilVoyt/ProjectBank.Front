@@ -24,7 +24,7 @@ export class PersonalCabinetService {
     }
 
   getAllTransactions(senderId: string | undefined, receiverId: string | undefined, sortItem: string = "date", sortOrder: string = "asc"): Observable<Transaction[]>{
-      return this.http.get<Transaction[]>(`https://localhost:7281/api/transactions?sender=${senderId}&receiver=${receiverId}&sortItem=${sortItem}${sortItem}`).pipe(
+      return this.http.get<Transaction[]>(`https://localhost:7281/api/transactions?sender=${senderId}&receiver=${receiverId}&sortItem=${sortItem}`).pipe(
         map(response => response as Transaction[])
       )
     }
