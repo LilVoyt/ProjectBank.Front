@@ -6,39 +6,42 @@ import { Register } from '../../models/register';
 import { CommonModule } from '@angular/common';
 import { Observer } from 'rxjs';
 
-
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ReactiveFormsModule, CommonModule, RouterLink],
+  imports: [CommonModule, RouterOutlet, ReactiveFormsModule, RouterLink],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']  // виправлено styleUrls
 })
 export class RegisterComponent {
-
   registerForm: FormGroup;
 
-  constructor(private registerService: RegisterService, private fb: FormBuilder, private router: Router){
+  constructor(
+    private registerService: RegisterService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.registerForm = this.fb.group({
-      name : [''],
-      login : [''],
-      password : [''],
-      firstName : [''],
-      lastName : [''],
-      country : [''],
-      phoneNumber : [''],
-      email : [''],
-    })
-  } 
-  
+      name: [''],
+      login: [''],
+      password: [''],
+      firstName: [''],
+      lastName: [''],
+      country: [''],
+      phoneNumber: [''],
+      email: [''],
+    });
+  }
+
   onSubmit(): void {
     if (this.registerForm.valid) {
       const newRegister: Register = this.registerForm.value;
+
       const registerObserver: Observer<any> = {
         next: (response) => {
           console.log('Register successful:', response);
           this.registerService.storeToken(response.token);
-          this.router.navigate([`/personal-cabinet/${newRegister.login}`]);
+          this.router.navigate([`/personal-cabinet/${newRegister.login}`]); 
         },
         error: (error) => {
           console.error('Register failed:', error);
@@ -52,5 +55,4 @@ export class RegisterComponent {
       this.registerService.createUser(newRegister).subscribe(registerObserver);
     }
   }
-  
 }
