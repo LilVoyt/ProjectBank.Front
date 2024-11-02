@@ -1,0 +1,38 @@
+<div class="credit-history-container">
+
+    <button (click)="createCredit()" class="create-credit-button">Create Credit</button>
+  
+    <div class="credit-count">
+        <p>Total Credits: {{ credits.length }}</p>
+        <p>Active Credits: {{ credits.length }}</p>
+        <p>Paid Off Credits: {{ credits.length }}</p>
+        <p>Overdue Credits: {{ credits.length }}</p>
+      </div>
+    <h2>Credit History</h2>
+  
+    <div *ngIf="credits.length > 0; else noCredits">
+      <table class="credits-table">
+        <thead>
+          <tr>
+            <th>Credit Type</th>
+            <th>Principal Amount</th>
+            <th>Monthly Payment</th>
+            <th>End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let credit of credits">
+            <td>{{ credit.creditTypeName }}</td>
+            <td>{{ credit.principal}}</td>
+            <td>{{ credit.monthlyPayment}}</td>
+            <td>{{ credit.endDate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <ng-template #noCredits>
+      <p>No credit history available.</p>
+    </ng-template>
+  </div>
+  

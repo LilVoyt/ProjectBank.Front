@@ -8,6 +8,8 @@ import { authGuard } from './guards/auth.guard';
 import { MoneyTransferComponent } from './components/money-transfer/money-transfer.component';
 import { CreateCardComponent } from './components/create-card/create-card.component';
 import { CardSetInfoComponent } from './components/card-set-info/card-set-info.component';
+import { CreateCreditComponent } from './components/create-credit/create-credit.component';
+import { CreditManagementComponent } from './components/credit-management/credit-management.component';
 
 
 export const routes: Routes = [
@@ -27,7 +29,7 @@ export const routes: Routes = [
         title: 'Register Page'
     },
     {
-        path: 'personal-cabinet/:id',
+        path: 'personal-cabinet',
         component: PersonalCabinetComponent, canActivate: [authGuard],
         title: 'Personal Cabinet Page'
     },
@@ -45,5 +47,15 @@ export const routes: Routes = [
         path: 'create-card/:type',
         component: CardSetInfoComponent, canActivate: [authGuard],
         title: 'Set Card Page'
+    },
+    {
+        path: 'credit-management',
+        component: CreditManagementComponent, canActivate: [authGuard],
+        title: 'Credit Management Page'
+    },
+    {
+        path: 'create-credit',
+        component: CreateCreditComponent, canActivate: [authGuard],
+        title: 'Create Credit Page'
     }
 ];

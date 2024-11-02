@@ -1,0 +1,87 @@
+.credit-form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .credit-form-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .credit-form-container form label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin: 12px 0 4px;
+  }
+  
+  .credit-form-container form input,
+  .credit-form-container form select,
+  .credit-form-container form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .credit-form-container form input[type="date"],
+  .credit-form-container form input[type="number"] {
+    max-width: 200px;
+  }
+  
+  .credit-form-container .error {
+    color: #d9534f;
+    font-size: 12px;
+    margin-top: -8px;
+    margin-bottom: 8px;
+  }
+  
+  .credit-form-container .terms {
+    margin: 15px 0;
+  }
+  
+  .credit-form-container .terms a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  .credit-form-container .checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .credit-form-container .checkbox-label input {
+    margin-right: 10px;
+  }
+  
+  .credit-form-container button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .credit-form-container button[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .credit-form-container button[type="submit"]:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  

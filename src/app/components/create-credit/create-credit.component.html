@@ -1,0 +1,88 @@
+<div class="credit-form-container">
+    <h2>Credit Application</h2>
+    <form [formGroup]="creditForm" (ngSubmit)="onSubmit()">
+    <div class="card-selection">
+        <label for="senderNumber">Select card</label>
+        <select formControlName="cardNumber" id="cardNumber">
+            <option *ngFor="let card of cards" [value]="card.numberCard">{{card.cardName}} {{ card.numberCard }}</option>
+        </select>
+        </div>
+  
+      <label>
+        Credit Amount:
+        <input formControlName="creditAmount" type="number" />
+      </label>
+      <div *ngIf="creditForm.get('creditAmount')?.invalid && creditForm.get('creditAmount')?.touched">
+        <small class="error">Minimum credit amount is 1000.</small>
+      </div>
+  
+      <label>
+        Duration (months):
+        <input formControlName="duration" type="number" />
+      </label>
+      <div *ngIf="creditForm.get('duration')?.invalid && creditForm.get('duration')?.touched">
+        <small class="error">Duration is required and must be at least 1 month.</small>
+      </div>
+
+      <label>Personal info </label>
+
+      <label>
+        Full Name:
+        <input formControlName="fullName" type="text" />
+      </label>
+      <div *ngIf="creditForm.get('fullName')?.invalid && creditForm.get('fullName')?.touched">
+        <small class="error">Full name is required.</small>
+      </div>
+  
+      <label>
+        Date of Birth:
+        <input formControlName="dateOfBirth" type="date" />
+      </label>
+      <div *ngIf="creditForm.get('dateOfBirth')?.invalid && creditForm.get('dateOfBirth')?.touched">
+        <small class="error">Date of birth is required.</small>
+      </div>
+  
+      <label>
+        Monthly Income:
+        <input formControlName="monthlyIncome" type="number" />
+      </label>
+      <div *ngIf="creditForm.get('monthlyIncome')?.invalid && creditForm.get('monthlyIncome')?.touched">
+        <small class="error">Monthly income is required.</small>
+      </div>
+
+      <label>
+        Place of residence:
+        <textarea formControlName="residencePlace"></textarea>
+      </label>
+  
+      <label>
+        Purpose of Credit:
+        <textarea formControlName="purpose"></textarea>
+      </label>
+
+      <label>
+        Credit Type:
+        <select formControlName="creditType">
+          <option value="" disabled>Select credit type</option>
+          <option *ngFor="let type of creditTypes" [value]="type.name">{{ type.name }}</option>
+        </select>
+      </label>
+      <div *ngIf="creditForm.get('creditType')?.invalid && creditForm.get('creditType')?.touched">
+        <small class="error">Please select a credit type.</small>
+      </div>
+
+      <div class="terms">
+        <a href="#" target="_blank">Read Bank Terms and Conditions</a>
+      </div>
+
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="agreeToTerms" /> I agree to the Bank's Terms and Conditions
+      </label>
+      <div *ngIf="creditForm.get('agreeToTerms')?.invalid && creditForm.get('agreeToTerms')?.touched">
+        <small class="error">You must agree to the terms to proceed.</small>
+      </div>
+  
+      <button type="submit" [disabled]="creditForm.invalid">Submit Application</button>
+    </form>
+  </div>
+  

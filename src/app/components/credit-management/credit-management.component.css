@@ -1,0 +1,73 @@
+.credit-history-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .create-credit-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #494949;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .create-credit-button:hover {
+    background-color: #494949;
+  }
+  
+  .credit-count {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  
+  .credit-count p {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .credits-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .credits-table th,
+  .credits-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .credits-table th {
+    background-color: #494949;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .credits-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .credits-table tr:hover {
+    background-color: #ddd;
+  }
+  
+  .no-credits {
+    text-align: center;
+    font-size: 16px;
+    color: #888;
+    margin-top: 20px;
+  }
+  
