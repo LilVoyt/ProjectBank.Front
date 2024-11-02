@@ -48,7 +48,7 @@ export class CardSetInfoComponent {
 
       this.addCard.pincode = formData.pinCode;
       this.addCard.cardName =  this.route.snapshot.paramMap.get('type') ?? "";
-      this.addCard.currencyCode = "UAH";
+      this.addCard.currencyCode = "USD";
       this.addCard.accountId = decoded.certserialnumber;
 
       console.log(this.addCard);

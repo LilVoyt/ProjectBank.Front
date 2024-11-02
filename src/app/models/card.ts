@@ -5,7 +5,8 @@ export interface Card {
     cardName: string;
     numberCard: string;
     pincode: number;
-    Data: Date;
+    expirationDate: any;
     cvv: number;
     balance: number;
+    currencyCode: string;
   }

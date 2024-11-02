@@ -1,0 +1,29 @@
+<div class="credit-details-container">
+    <h2>Credit Details</h2>
+  
+    <table class="credits-table">
+      <thead>
+        <tr>
+          <th>Monthly Payment</th>
+          <th>Amount to Repay</th>
+          <th>Currency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ creditDetails?.monthlyPayment}} {{creditDetails?.currencyCode }}</td>
+          <td>{{ creditDetails?.amountToRepay}} {{creditDetails?.currencyCode }}</td>
+          <td>{{ creditDetails?.currencyCode }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="payment-info">
+      <p>Monthly Payment Amount: {{ creditDetails?.monthlyPayment}} {{creditDetails?.currencyCode }}</p>
+    </div>
+  
+    <button (click)="makeMonthlyPayment()" class="payment-button">
+      Make Monthly Payment
+    </button>
+  </div>
+  

@@ -1,4 +1,5 @@
 export class Credit {
+    id: string;
     cardNumber: string;
     principal: number;
     amountToRepay: number;
@@ -10,6 +11,7 @@ export class Credit {
     creditTypeName: string;
   
     constructor(
+      id: string,
       cardNumber: string,
       principal: number,
       amountToRepay: number,
@@ -20,6 +22,7 @@ export class Credit {
       currencyName: string,
       creditTypeName: string
     ) {
+      this.id = id;
       this.cardNumber = cardNumber;
       this.principal = principal;
       this.amountToRepay = amountToRepay;

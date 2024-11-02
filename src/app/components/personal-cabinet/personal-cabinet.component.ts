@@ -37,6 +37,7 @@ export class PersonalCabinetComponent implements OnInit {
         this.account = account;
         this.cardsArray = account.cards;
         this.personalCabinetService.setAccountCards(account.cards);
+        this.selectedCard = this.cardsArray[0];
       });
     }
   }

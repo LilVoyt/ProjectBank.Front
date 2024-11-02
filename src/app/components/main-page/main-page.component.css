@@ -1,130 +1,88 @@
-.main{
-  height: 1000px;
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+  background-color: #ffffff;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-.main h1{
-    display: flex;
-    justify-content: center;
-  }
+.section {
+  background-color: #2e2e2e;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  margin-top: 0;
+  color: #ffffff;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 4px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin: 4px 0;
+  border-radius: 4px;
+  border: none;
+  color: #333;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #004cbf;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #004cbf;
+}
+
+.currency-converter .converter-input,
+.currency-converter .converter-output {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.currency-converter select,
+.currency-converter input {
+  margin-right: 8px;
+}
+
+.currency-converter p {
+  font-size: 12px;
+  color: #888;
+}
 
 
-.customer-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
-    text-align: left;
-  }
-  
-  .customer-table thead {
-    background-color: #f2f2f2;
-  }
-  
-  .customer-table th,
-  .customer-table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-  }
-  
-  .customer-table th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-  }
-  
-  .customer-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .customer-table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .customer-table th, .customer-table td {
-    text-align: center;
-  }
-  
-  .cards-container {
-    display:flex;
-    align-items:flex-start;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    height: 500px;
-  }
-  
-  .cards-container h1 {
-    text-align: left;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #333;
-  }
-  
-  .card {
-    background-color: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    margin-bottom: 2rem;
-    margin-left: 10px;
-    margin-right: 10px;
-    transition: box-shadow 0.3s ease;
-    min-height: 460px;
-    width: 300px;
-  }
-  
-  .card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-image {
-    width: 100%;
-    border-radius: 8px;
-    height: 150px;
-  }
-  
-  .card h2 {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    color: #333;
-  }
-  
-  .card ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 1rem 0;
-    color: #666;
-  }
-  
-  .card ul li {
-    margin-bottom: 0.5rem;
-  }
-  
-  .open-button, .details-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .open-button {
-    background-color: #28a745;
-    margin-right: 0.5rem;
-  }
-  
-  .details-button {
-    background-color: #6c757d;
-  }
-  
-  .open-button:hover {
-    background-color: #218838;
-  }
-  
-  .details-button:hover {
-    background-color: #5a6268;
-  }
+.no-style-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.no-style-link:hover {
+  text-decoration: underline;
+}

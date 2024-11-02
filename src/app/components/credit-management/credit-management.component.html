@@ -1,5 +1,7 @@
 <div class="credit-history-container">
 
+    <h1>New credit service</h1>
+
     <button (click)="createCredit()" class="create-credit-button">Create Credit</button>
   
     <div class="credit-count">
@@ -21,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let credit of credits">
+          <tr *ngFor="let credit of credits" (click)="viewCreditDetails(credit.id)">
             <td>{{ credit.creditTypeName }}</td>
             <td>{{ credit.principal}}</td>
             <td>{{ credit.monthlyPayment}}</td>

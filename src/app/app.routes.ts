@@ -10,6 +10,7 @@ import { CreateCardComponent } from './components/create-card/create-card.compon
 import { CardSetInfoComponent } from './components/card-set-info/card-set-info.component';
 import { CreateCreditComponent } from './components/create-credit/create-credit.component';
 import { CreditManagementComponent } from './components/credit-management/credit-management.component';
+import { CreditInfoComponent } from './components/credit-info/credit-info.component';
 
 
 export const routes: Routes = [
@@ -57,5 +58,10 @@ export const routes: Routes = [
         path: 'create-credit',
         component: CreateCreditComponent, canActivate: [authGuard],
         title: 'Create Credit Page'
+    },
+    {
+        path: 'credit-info/:id',
+        component: CreditInfoComponent, canActivate: [authGuard],
+        title: 'Credit Info Page'
     }
 ];

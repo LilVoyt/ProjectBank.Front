@@ -30,7 +30,7 @@ export class LoginComponent {
         next: (response) => {
           console.log('Login successful:', response);
           this.registerService.storeToken(response.token);
-          this.router.navigate([`/personal-cabinet/${newLogin.login}`]);
+          this.router.navigate([`/personal-cabinet`]);
         },
         error: (error) => {
           console.error('Login failed:', error);

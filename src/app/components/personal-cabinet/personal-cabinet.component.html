@@ -6,7 +6,7 @@
           <div class="card" [style.background-image]="'url(photo.png)'">
             <h3>{{ card.cardName }}</h3>
             <p>{{ card.numberCard }}</p>
-            <p>{{ card.balance | number }} </p>
+            <p>{{ card.balance | number }} {{card.currencyCode}} </p>
           </div>
         </li>
       </ul>
@@ -17,9 +17,9 @@
   
     <div class="details" *ngIf="selectedCard">
       <h2>{{ selectedCard.cardName }}</h2>
-      <p>Номер картки: {{ selectedCard.numberCard }}</p>
-      <p>Баланс: {{ selectedCard.balance | number }} UAH</p>
-      <p>Дата закінчення: {{ selectedCard.Data | date: 'MM/yy' }}</p>
+      <p>Card Number: {{ selectedCard.numberCard }}</p>
+      <p>Balance: {{ selectedCard.balance | number }} UAH</p>
+      <p>Expiration date: {{ selectedCard.expirationDate | date: 'dd/MM/yyyy' }}</p>
       <p>CVV: {{ selectedCard.cvv }}</p>
 
 
@@ -32,7 +32,7 @@
           <img src="money-transfer-svgrepo-com.svg" alt="Перевести гроші" width="32" height="32" />
             <p>Make transaction</p>
         </div>
-        <div class="icon" (click)="getCredits()">
+        <div class="icon" (click)="sendTransaction()">
           <img src="loan-svgrepo-com.svg" alt="Settings" width="32" height="32" />
             <p>Credit</p>
         </div>
@@ -42,19 +42,25 @@
         </div>
     </div>
 
-      <h3>Транзакції</h3>
+      <h3>Transactions</h3>
     <div class="transactions">
       <table>
         <thead>
           <tr>
             <th>Id</th>
-            <th>sum</th>
+            <th>Sum</th>
+            <th>Transaction date</th>
+            <th>Card sender id</th>
+            <th>Card receiver id</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let transaction of transactions">
             <td>{{ transaction.id }}</td>
             <td>{{ transaction.sum | number}}</td>
+            <td>{{ transaction.transactionDate }}</td>
+            <td>{{ transaction.cardSenderId }}</td>
+            <td>{{ transaction.cardReceiverId }}</td>
           </tr>
         </tbody>
       </table>

@@ -36,4 +36,8 @@ export class CreditManagementComponent implements OnInit {
   createCredit(): void {
     this.router.navigate([`/create-credit`]);
   }
+
+  viewCreditDetails(creditId : string) : void {
+    this.router.navigate([`/credit-info/${creditId}`]);
+  }
 }

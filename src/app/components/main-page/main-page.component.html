@@ -1,60 +1,83 @@
-<div class="main">
-  <!-- <table>
-    <thead>
-      <th>Name</th>
-      <th>Last Name</th>
-      <th>Country</th>
-      <th>Phone Number</th>
-      <th>Email</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let customer of customers">
-        <td>{{customer.firstName}}</td>
-        <td>{{customer.lastName}}</td>
-        <td>{{customer.country}}</td>
-        <td>{{customer.phoneNumber}}</td>
-        <td>{{customer.email}}</td>
-      </tr>
-    </tbody>
-  </table> -->
+<div class="dashboard-container">
+  <!-- Wallet Section -->
+  <div class="section wallet">
+    <a [routerLink]="['/personal-cabinet']" class="no-style-link">Wallet</a>
+    <ul>
+      <li *ngFor="let card of cardsArray">
+        <div class="card">
+          <p>{{ card.cardName }}</p>
+          <p>{{ card.numberCard }}</p>
+          <p>{{ card.balance | number }} </p>
+          <p>{{ card.currencyCode }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-  <h1>Картки</h1>
-  <div class="cards-container">
-    <div class="card">
-      <img src="photo.png" alt="Універсальна картка" class="card-image">
-      <h2>Універсальна</h2>
-      <ul>
-        <li>Кредитний ліміт до 200 тис. грн та до 55 днів без відсотків</li>
-        <li>Персональні кешбеки в програмі лояльності «Привіт»</li>
-        <li>«Оплата частинами» та «Миттєва розстрочка»: купуйте зараз – платіть потім</li>
-      </ul>
-      <button class="open-button">Відкрити</button>
-      <button class="details-button">Детальніше</button>
-    </div>
-  
-    <div class="card">
-      <img src="photo.png" alt="Картка для виплат" class="card-image">
-      <h2>Для виплат</h2>
-      <ul>
-        <li>Для вашої зарплати, пенсії чи стипендії</li>
-        <li>Оформимо за 15 хв.</li>
-        <li>Зняття готівки без комісії в банкоматі, що точно є поблизу вас</li>
-      </ul>
-      <button class="open-button">Відкрити</button>
-      <button class="details-button">Детальніше</button>
-    </div>
-  
-    <div class="card">
-      <img src="photo.png" alt="Картка Юніора" class="card-image">
-      <h2>Юніорам</h2>
-      <ul>
-        <li>Доросла картка для наймолодших клієнтів</li>
-        <li>Самостійне оформлення з 14 років</li>
-        <li>Сервіс «Зробив – заробив». Грошова винагорода від батьків за виконані завдання</li>
-      </ul>
-      <button class="open-button">Замовити</button>
-      <button class="details-button">Детальніше</button>
+  <!-- Transfer Section -->
+  <div class="section transfer">
+    <h3>Transfer to a card</h3>
+    <div class="input-group">
+      <input type="text" placeholder="0000 0000 0000 0000" />
+      <button>➡️</button>
     </div>
   </div>
-  
+
+  <!-- Payment Section -->
+  <div class="section payment">
+    <h3>Payment</h3>
+    <input type="text" placeholder="UAXXXXXXXXXXXXXX" />
+  </div>
+
+  <!-- Credit Section -->
+  <div class="section credits">
+    <h3>My credits</h3>
+    <p>View information about your loans in the new service</p>
+    <button (click)="creditDetails()">Jump to</button>
+  </div>
+
+  <!-- Transaction History Section -->
+  <div class="section transaction-history">
+    <h3>Transaction history</h3>
+    <ul>
+      <li>MICROSOFT*SUBSCRIPTION -189.00 UAH</li>
+      <li>Towermarket, Lviv -103.00 UAH</li>
+      <li>Округлення залишку на Скарбничку -6.29 UAH</li>
+    </ul>
+  </div>
+
+  <!-- Mobile Top-up Section -->
+  <div class="section mobile-topup">
+    <h3>Top up your mobile</h3>
+    <input type="text" placeholder="+380" />
+    <input type="text" placeholder="73 182 20 35" />
+    <button>Replenish</button>
+  </div>
+
+  <!-- News Section -->
+  <div class="section news">
+    <h3>What's new in ProjectBank</h3>
+    <p>Financial control and management</p>
+    <p>Comments on transfers</p>
+  </div>
+
+  <!-- Currency Converter Section -->
+  <div class="section currency-converter">
+    <h3>Currency converter</h3>
+    <div class="converter-input">
+      <select>
+        <option>USD</option>
+        <option>EUR</option>
+      </select>
+      <input type="text" value="200.00" />
+    </div>
+    <div class="converter-output">
+      <select>
+        <option>UAH</option>
+        <option>EUR</option>
+      </select>
+      <input type="text" value="8,200.00" />
+    </div>
+    <p>1 $ = 41.05 ₴</p>
+  </div>
 </div>
