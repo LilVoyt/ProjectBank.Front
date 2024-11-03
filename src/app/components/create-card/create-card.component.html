@@ -1,7 +1,7 @@
 <div class="card-container">
     <ul>
         <li *ngFor="let card of cards" (click)="selectCard(card)">
-          <div class="card" [style.background-image]="'url(photo.png)'">
+          <div class="card" [ngStyle]="{'background-image': getCardBackground(card.name)}">
             <h3>{{ card.name }}</h3>
             <p>{{ card.numberCard }}</p>
             <p>{{ card.balance | number }} UAH</p>

@@ -33,6 +33,7 @@ export class MainPageComponent {
       this.personalCabinetService.getAccountById(decoded.certserialnumber).subscribe(account => {
         console.log('Received account:', account);
         this.cardsArray = account.cards;
+        this.cardsArray = this.cardsArray.slice(0, 2);
       });
     }
   }

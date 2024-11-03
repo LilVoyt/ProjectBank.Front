@@ -1,150 +1,171 @@
+/* General container styling */
 .container {
-    display: flex;
-    height: 100vh;
-    background-color: #222; /* Додаємо фон для кращого контрасту */
-  }
-  
-  .sidebar {
-    width: 320px;
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    overflow-y: auto;
-  }
-  
-  .sidebar h2 {
-    text-align: center;
-    margin-bottom: 20px; /* Додаємо відступ знизу для кращого вигляду */
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    margin-bottom: 10px;
-  }
-  
-  .card {
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    padding: 10px;
-    color: white;
-    min-height: 185px;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    cursor: pointer;
-    transition: transform 0.2s; /* Додаємо анімацію при наведенні */
-  }
-  
-  .card:hover {
-    transform: scale(1.05); /* Збільшуємо картку при наведенні */
-  }
-  
-  .card-content {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 10px;
-  }
-  
-  .details {
-    flex-grow: 1;
-    background-color: #444;
-    color: white;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  
-  .details h2 {
-    margin-top: 0;
-  }
-  
-  .transactions {
-    margin-top: 20px;
-  }
-  
-  .transactions table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .transactions th, .transactions td {
-    padding: 10px;
-    border: 1px solid #555; /* Змінюємо колір бордюру для кращого контрасту */
-    text-align: left;
-  }
-  
-  .transactions th {
-    background-color: #555; /* Темніший фон для заголовків таблиці */
-  }
-  
-  .transactions td {
-    background-color: #666; /* Змінюємо фон для рядків таблиці */
-  }
-  
-  .transactions td.negative {
-    color: red;
-  }
-  
+  display: flex;
+  background-color: #1c1e21;
+  padding: 20px; /* Added padding for a cleaner look */
+}
 
-  .card-controls {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0; /* Відступ між карткою та управлінням */
+/* Sidebar styling */
+.sidebar {
+  width: 320px;
+  background-color: #2e3238;
+  color: #d1d5db;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  color: #a3b1c2;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Card styling within the sidebar */
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.card {
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  min-height: 185px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1em;
+  color: #d1d5db;
+}
+
+/* Details section styling */
+.details {
+  flex-grow: 1;
+  background-color: #272a2f;
+  color: #e5e7eb;
+  padding: 25px;
+  border-left: 1px solid #40454b;
+}
+
+.details h2 {
+  margin-top: 0;
+  color: #a3b1c2;
+}
+
+/* Transactions table styling */
+.transactions {
+  margin-top: 20px;
+}
+
+.transactions table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #d1d5db;
+}
+
+.transactions th, .transactions td {
+  padding: 12px;
+  border-bottom: 1px solid #40454b;
+  text-align: left;
+}
+
+.transactions th {
+  background-color: #33383d;
+  color: #a3b1c2;
+}
+
+.transactions td {
+  background-color: #2e3238;
+}
+
+.transactions td.negative {
+  color: #e57373;
+}
+
+/* Card controls styling */
+.card-controls {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
 }
 
 .icon {
-    flex: 1; /* Кожна іконка займатиме однакову ширину */
-    text-align: center; /* Центрування тексту */
-    cursor: pointer; /* Курсор у вигляді вказівника */
-    transition: transform 0.2s; /* Анімація при наведенні */
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
 }
 
 .icon:hover {
-    transform: scale(1.1); /* Збільшення іконки при наведенні */
+  transform: scale(1.1);
+  color: #64b5f6; /* Light blue on hover for icons */
 }
 
 .icon i {
-    font-size: 24px; /* Розмір іконки */
-    color: #28a745; /* Колір іконки */
+  font-size: 24px;
 }
 
 .icon p {
-    margin-top: 5px; /* Відступ між іконкою та текстом */
-    color: white; /* Білий текст */
+  margin-top: 5px;
+  color: #d1d5db;
 }
 
-/* Залиште попередні стилі для кнопки та загального оформлення */
+/* Button styling for transactions */
 .transaction-button {
-    background-color: #28a745; /* Зелений фон */
-    color: white; /* Білий текст */
-    border: none; /* Без бордюра */
-    border-radius: 5px; /* Заокруглення кутів */
-    padding: 10px 20px; /* Внутрішні відступи */
-    font-size: 16px; /* Розмір шрифту */
-    cursor: pointer; /* Курсор у вигляді вказівника */
-    transition: background-color 0.3s, transform 0.2s; /* Анімація */
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .transaction-button:hover {
-    background-color: #218838; /* Темніший зелений при наведенні */
-    transform: scale(1.05); /* Збільшення кнопки при наведенні */
+  background-color: #388e3c;
+  transform: scale(1.05);
 }
 
-
-.add-card-div{
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
+/* Add card button styling */
+.add-card-div {
+  margin-top: 20px; /* Added space above the button */
 }
 
-.add-card-button{
-  height : 90px;
+.add-card-button {
+  height: 60px;
+  background-color: #00796b;
+  color: white;
+  border: none;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-card-button:hover {
+  background-color: #004d40;
+  transform: scale(1.05);
 }

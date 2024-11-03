@@ -1,39 +1,74 @@
+/* Main container styling */
 .credit-details-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  .credits-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  .credits-table th, .credits-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .payment-info {
-    margin-bottom: 20px;
-  }
-  
-  .payment-button {
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #28a745;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .payment-button:hover {
-    background-color: #218838;
-  }
-  
+  background-color: #272a2f;
+  color: #e5e7eb;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Heading styling */
+.credit-details-container h2 {
+  margin-top: 0;
+  color: #a3b1c2;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+/* Table styling */
+.credits-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.credits-table th, .credits-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.credits-table th {
+  background-color: #33383d;
+  color: #a3b1c2;
+  font-weight: 600;
+}
+
+.credits-table td {
+  background-color: #2e3238;
+  color: #d1d5db;
+}
+
+/* Payment info styling */
+.payment-info {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #2e3238;
+  border-radius: 8px;
+  font-size: 1.1em;
+  color: #d1d5db;
+  text-align: center;
+}
+
+/* Button styling */
+.payment-button {
+  display: block;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 20px auto 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.payment-button:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}

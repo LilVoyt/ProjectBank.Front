@@ -25,17 +25,18 @@ export class CardSetInfoComponent {
     accountId: ''
   }
   newCard: Card | null = null;
+  cardType: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private personalCabinetService: PersonalCabinetService) {
     this.createCardForm = this.fb.group({
       agreeToTerms: [false, Validators.requiredTrue],
-      pinCode: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]]
+      pinCode: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+      currencyCode: ['UAH', Validators.required]
     });
+    this.cardType = this.route.snapshot.paramMap.get('type') ?? " ";
   }
   
   ngOnInit() {
-    const login = this.route.snapshot.paramMap.get('type');
-    console.log(login);
   }
 
   onSubmit(): void {
@@ -48,7 +49,7 @@ export class CardSetInfoComponent {
 
       this.addCard.pincode = formData.pinCode;
       this.addCard.cardName =  this.route.snapshot.paramMap.get('type') ?? "";
-      this.addCard.currencyCode = "USD";
+      this.addCard.currencyCode = formData.currencyCode;
       this.addCard.accountId = decoded.certserialnumber;
 
       console.log(this.addCard);
@@ -56,6 +57,19 @@ export class CardSetInfoComponent {
       this.personalCabinetService.addCard(this.addCard).subscribe(card => {
         this.newCard = card;
       })
+    }
+  }
+
+  getCardBackground(cardName: string): string {
+    switch(cardName.toLowerCase()) {
+      case 'Visa':
+        return 'url("niceGoldBackground.jpg")';
+      case 'mastercard':
+        return 'url("steelBackground.jpg")';
+      case 'american express':
+        return 'url("photo.png")';
+      default:
+        return 'url("niceGoldBackground.jpg")';
     }
   }
 }

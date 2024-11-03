@@ -69,4 +69,17 @@ export class PersonalCabinetComponent implements OnInit {
   getCredits(): void{
     this.router.navigate(['/credit-management'])
   }
+
+  getCardBackground(cardName: string): string {
+    switch(cardName.toLowerCase()) {
+      case 'Visa':
+        return 'url("niceGoldBackground.jpg")';
+      case 'mastercard':
+        return 'url("steelBackground.jpg")';
+      case 'american express':
+        return 'url("photo.png")';
+      default:
+        return 'url("niceGoldBackground.jpg")';
+    }
+  }
 }

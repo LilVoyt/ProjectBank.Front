@@ -1,59 +1,71 @@
+/* Container for the cards */
 .card-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-    width: 200px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #e5e7eb;
+}
 
-  .card h3{
-    color: #ccc;
-  }
+.card-container h2 {
+  color: #a3b1c2;
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
 
-  .card p{
-    color: #ccc;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card-img {
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    padding: 10px;
-    color: white;
-    min-height: 185px;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  
-  .card-name {
-    display: block;
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .card-number, .card-expiry, .card-balance {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
-  }
-  
+/* Styling for the list of cards */
+.card-container ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Each card styling */
+.card-container li {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card-container li:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  width: 300px;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #e5e7eb;
+}
+
+.card p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #e5e7eb;
+  font-weight: 400;
+}
+
+ul{
+  margin-top: 50px;
+  margin-bottom: 100px;
+}

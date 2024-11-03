@@ -1,7 +1,9 @@
+import { Card } from "./card";
+
 export interface Transaction{
     id : string;
     transactionDate : Date;
     sum : number;
-    cardSenderId : string;
-    cardReceiverId : string;
+    cardSender : Card;
+    cardReceiver : Card;
 }

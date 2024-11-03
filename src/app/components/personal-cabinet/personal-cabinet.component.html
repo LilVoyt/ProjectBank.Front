@@ -3,7 +3,7 @@
       <h2>Картки</h2>
       <ul>
         <li *ngFor="let card of cardsArray" (click)="selectCard(card)">
-          <div class="card" [style.background-image]="'url(photo.png)'">
+          <div class="card" [ngStyle]="{'background-image': getCardBackground(card.cardName)}">
             <h3>{{ card.cardName }}</h3>
             <p>{{ card.numberCard }}</p>
             <p>{{ card.balance | number }} {{card.currencyCode}} </p>
@@ -59,8 +59,8 @@
             <td>{{ transaction.id }}</td>
             <td>{{ transaction.sum | number}}</td>
             <td>{{ transaction.transactionDate }}</td>
-            <td>{{ transaction.cardSenderId }}</td>
-            <td>{{ transaction.cardReceiverId }}</td>
+            <td>{{ transaction.cardSender.numberCard }}</td>
+            <td>{{ transaction.cardReceiver.numberCard }}</td>
           </tr>
         </tbody>
       </table>
