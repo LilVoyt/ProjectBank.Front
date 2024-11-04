@@ -41,7 +41,7 @@ export class RegisterComponent {
         next: (response) => {
           console.log('Register successful:', response);
           this.registerService.storeToken(response.token);
-          this.router.navigate([`/personal-cabinet/${newRegister.login}`]); 
+          this.router.navigate([`/personal-cabinet`]); 
         },
         error: (error) => {
           console.error('Register failed:', error);
