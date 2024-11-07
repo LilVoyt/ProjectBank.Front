@@ -55,6 +55,8 @@ export class CreateCreditComponent implements OnInit {
         formData.cardNumber, 
         formData.creditAmount,
         formData.duration,
+        formData.dateOfBirth,
+        formData.monthlyIncome,
         formData.creditType
       );
       console.log("Credit application submitted:", createCredit);
