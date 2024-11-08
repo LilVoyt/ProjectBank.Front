@@ -38,8 +38,10 @@ export class PersonalCabinetComponent implements OnInit {
         this.cardsArray = account.cards;
         this.personalCabinetService.setAccountCards(account.cards);
         this.selectedCard = this.cardsArray[0];
+        this.getTransactions(this.selectedCard.id, this.selectedCard.id);
       });
     }
+    console.log('Transactions:', this.transactions);
   }
 
   selectCard(card: Card): void {
@@ -54,7 +56,6 @@ export class PersonalCabinetComponent implements OnInit {
       } else {
         this.transactions = transactions;
       }
-      console.log('Transactions:', this.transactions);
     });
   }
 

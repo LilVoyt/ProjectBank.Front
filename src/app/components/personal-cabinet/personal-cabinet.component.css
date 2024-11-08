@@ -7,6 +7,7 @@
 
 /* Sidebar styling */
 .sidebar {
+  min-width: 320px;
   width: 320px;
   background-color: #2e3238;
   color: #d1d5db;

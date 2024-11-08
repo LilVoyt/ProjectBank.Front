@@ -61,6 +61,12 @@ export class CreateCreditComponent implements OnInit {
       );
       console.log("Credit application submitted:", createCredit);
       this.creditService.postCredit(createCredit).subscribe(
+        (result) => {
+          console.log("Credit created successfully:", result);
+        },
+        (error) => {
+          console.error("Error creating credit:", error);
+        }
       )
 
     }
